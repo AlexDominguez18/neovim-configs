@@ -32,6 +32,10 @@ nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-j> :TerminalSplit bash<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Theme configuration
 set termguicolors
@@ -58,3 +62,26 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+
+" TreeSitter Configuration
+
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  
+  ensure_installed = {
+    "php",
+    "javascript",
+    "html",
+    "css"
+  },
+
+  indent = {
+    enable = true,
+    disable = {},
+  },
+
+  highlight = {
+    enable = true,
+  }
+}
+EOF
