@@ -7,8 +7,11 @@ set showcmd
 set ruler
 set encoding=utf-8
 set showmatch
-set sw=2
+set tabstop=4
+set sw=4
 set relativenumber
+set wrap!
+set lsp=2
 
 call plug#begin()
 
@@ -27,15 +30,16 @@ Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 
 call plug#end()
-  
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-j> :TerminalSplit bash<CR>
+
+let mapleader = " "
+nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-j> :botright new <Bar> :resize 20 <Bar> :terminal<CR>
+nnoremap <C-s> :w<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Theme configuration
 set termguicolors
