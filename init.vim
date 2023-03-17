@@ -8,8 +8,8 @@ set showcmd
 set ruler
 set encoding=utf-8
 set showmatch
-set tabstop=4
-set sw=4
+set tabstop=2
+set sw=2 expandtab
 set relativenumber
 set wrap!
 set autoindent
@@ -30,6 +30,7 @@ Plug 'http://github.com/tpope/vim-surround'
 Plug 'neoclide/coc.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'pangloss/vim-javascript'
