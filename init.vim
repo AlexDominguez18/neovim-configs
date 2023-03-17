@@ -23,19 +23,20 @@ autocmd FileType javascript setlocal tabstop=2 sw=2 expandtab
 " Plugins
 call plug#begin()
 
-Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/preservim/nerdtree'
-Plug 'https://github.com/tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
 Plug 'http://github.com/tpope/vim-surround'
-Plug 'https://github.com/neoclide/coc.nvim'
-Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
-Plug 'https://github.com/nvim-lua/plenary.nvim'
-Plug 'https://github.com/BurntSushi/ripgrep'
-Plug 'https://github.com/nvim-telescope/telescope.nvim'
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-Plug 'https://github.com/folke/tokyonight.nvim'
-Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'folke/tokyonight.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-fugitive'
@@ -64,16 +65,19 @@ nnoremap <leader>w <cmd>:w<CR>
 nnoremap <leader>q <cmd>:q<CR>
 
 " Theme configuration
+set termguicolors
 
 " Ayu theme
-"set termguicolors
-"let ayucolor="mirage"
-":colorscheme ayu
+" let ayucolor="mirage"
+" :colorscheme ayu
 
 " Material theme
-set termguicolors
 " let g:material_theme_style='palenight'
 " let g:airline_theme='material'
+" :colorscheme material
+
+" GruvBox theme
+set background=dark
 :colorscheme gruvbox
 
 " NerdTree
@@ -83,7 +87,6 @@ let NERDTreeShowHidden=1
 
 " air-line
 let g:airline_powerline_fonts = 1
-
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -96,10 +99,10 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" Coc
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 " TreeSitter Configuration
-
 lua <<EOF
 require('nvim-treesitter.configs').setup {
   
@@ -117,6 +120,7 @@ require('nvim-treesitter.configs').setup {
 
   highlight = {
     enable = true,
+	disable = { "javascript" },
   }
 }
 EOF
