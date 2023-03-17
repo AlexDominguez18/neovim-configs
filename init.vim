@@ -27,7 +27,6 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'http://github.com/tpope/vim-surround'
-Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
@@ -35,6 +34,8 @@ Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/BurntSushi/ripgrep'
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/folke/tokyonight.nvim'
+Plug 'morhetz/gruvbox'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-fugitive'
@@ -71,9 +72,9 @@ nnoremap <leader>q <cmd>:q<CR>
 
 " Material theme
 set termguicolors
-let g:material_theme_style='palenight'
-let g:airline_theme='material'
-:colorscheme material
+" let g:material_theme_style='palenight'
+" let g:airline_theme='material'
+:colorscheme gruvbox
 
 " NerdTree
 let g:NERDTreeDirArrowExpandable="+"
