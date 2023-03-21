@@ -44,13 +44,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'akinsho/toggleterm.nvim', { 'tag': '*'}
 
 call plug#end()
 
 " Mappings and commands
 let mapleader = " "
 nnoremap <C-b> :NERDTreeToggle<CR>
-nnoremap <C-t> :botright new <Bar> :resize 20 <Bar> :terminal<CR>
+" nnoremap <C-t> :botright new <Bar> :resize 20 <Bar> :terminal<CR>
 nnoremap <C-f> :Telescope find_files<CR>
 nnoremap <C-p> :Telescope buffers<CR>
 nnoremap <C-j> 10<C-e>
@@ -110,6 +111,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = {
     "php",
     "javascript",
+    "vue",
     "html",
     "css"
   },
@@ -123,5 +125,12 @@ require('nvim-treesitter.configs').setup {
     enable = true,
 	disable = { "javascript" },
   }
+}
+EOF
+
+lua <<EOF
+require('toggleterm').setup {
+  size = 20,
+  open_mapping = [[<C-t>]]
 }
 EOF
